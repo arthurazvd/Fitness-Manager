@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/Favicon.ico'%}" type="image/x-icon">
+    <title>Instrutores</title>
+    <link rel="stylesheet" href="{% static 'css/globalstyle.css'%}">
+</head>
+<body>
+    <!--INICIO DO HEADER-->
+    <header class="top-container">
+        <div class="logo">
+            <img src="{% static 'img/Logo Fitness Manager Branca.png'%}" alt="Fitness Manager Logo" style="width: 150px;">
+        </div>
+        <nav class="nav-right">
+            <ul class="top-list">
+                <span id="back">
+
+                    <li><a href="{% url 'home' %}"><i class="fas fa-arrow-alt-circle-left" style="font-size: 42px; color: #fea303;"></i></i></a></li>
+                </span>
+            </ul>
+        </nav>
+    </header>
+    <!--FIM DO HEADER-->
+
+    <!--INICIO DO MAIN-->
+    <main class="mid-container">
+        <section>
+            <div class="column3">
+                <div class="alunos">
+                    <h2>Alunos</h2>
+                </div>
+                <div class="acoes">
+                    <a href="{% url 'novo-cliente' %}"><button class="cliente">Novo Aluno</button></a>
+                    <a href="{% url 'clientes' %}"><button class="atualizar">Atualizar</button></a>
+                </div>
+            </div>
+            <hr class="line">
+
+            <div class="content">
+                <table class="crud">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome do Aluno</th>
+                            <th>CPF</th>
+                            <th>E-mail</th>
+                            <th>Telefone</th>
+                            <th>Idade</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td colspan="7">
+                            <hr class="linha linha2">
+                        </td>
+                    </tr>
+                    {% for clientes in clientes %}
+                    <tbody>
+                            <tr>
+                               
+                                <td label="Código">{{ clientes.id}} </td>
+                                <td label="Nome">{{ clientes.nome}}</td>
+                                <td label="CPF">{{ clientes.cpf}}</td>
+                                <td label="E-mail">{{ clientes.email}}</td>
+                                <td label="Telefone">{{ clientes.telefone}}</td>
+                                <td label="Idade">{{ clientes.idade}}</td>
+                                
+                                <td>
+                                    <a href="{% url 'editar-cliente' clientes.id %}"><button class="editar">Editar</button></a>
+                                    <a href="{% url 'apagar-cliente' clientes.id %}"><button class="excluir">Excluir</button></a>
+                                </td>
+                                <br>
+                               
+                            </tr>
+
+                            <tr>
+                                <td colspan="7">
+                                    <hr class="linha">
+                                </td>
+                            </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+
+        </section>
+    </main>
+    <!--FIM DO MAIN-->
+
+    <!--INICIO DO FOOTER-->
+    <footer class="bot-container">
+        <ul class="icons">
+            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+        </ul>
+        <ul class="footer-list">
+            <li><a href="#">Suporte</a></li>
+            <li><a href="#">Termos de uso</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+        <p>Todos os direitos reservados - &copy;2021 FITNESS MANAGER</p>
+    </footer>
+    <!--FIM DO FOOTER-->
+
+    <!--SCRIPT-->
+    <script src="https://kit.fontawesome.com/6bdf5b89c1.js" crossorigin="anonymous"></script>
+    <!--FIM DO SCRIPT-->
+</body>
+</html>
