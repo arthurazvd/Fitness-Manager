@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/Favicon.ico'%}" type="image/x-icon">
+    <title>Cadastrar Instrutor</title>
+    <link rel="stylesheet" href="{% static 'css/globalstyle.css'%}">
+</head>
+<body>
+    <!--INICIO DO HEADER-->
+    <header class="top-container">
+        <div class="logo">
+            <img src="{% static 'img/Logo Fitness Manager Branca.png'%}" alt="Fitness Manager Logo" style="width: 150px;">
+        </div>
+        <nav class="nav-right">
+            <ul class="top-list">
+                <span id="back">
+
+                    <li><a href="{% url 'maquinas' %}"><i class="fas fa-arrow-alt-circle-left" style="font-size: 42px; color: #fea303;"></i></i></a></li>
+                </span>
+            </ul>
+        </nav>
+    </header>
+	<!--FIM DO HEADER-->
+
+	<!--INICIO DO MAIN-->
+	<main class="mid-container">
+		<div class="second-container">
+			<div class="cadastro">
+				<h2>Cadastro de Máquinas</h2>
+
+				<form method="POST" action="?">
+					{% csrf_token %}
+					{{maq}}
+					<input type="submit" value="Alterar">
+				</form>
+			</div>
+		</div>
+	</main>
+	<!--FIM DO MAIN-->
+	
+	<!--INICIO DO FOOTER-->
+	<footer class="bot-container">
+		<ul class="icons">
+			<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+			<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+			<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+		</ul>
+		<ul class="footer-list">
+			<li><a href="#">Suporte</a></li>
+			<li><a href="#">Termos de uso</a></li>
+			<li><a href="#">Contato</a></li>
+		</ul>
+		<p>Todos os direitos reservados - &copy;2021 FITNESS MANAGER</p>
+	</footer>
+	<!--FIM DO FOOTER-->
+
+	<!--SCRIPT-->
+	<script src="https://kit.fontawesome.com/6bdf5b89c1.js" crossorigin="anonymous"></script>
+	<!--FIM DO SCRIPT-->
+</body>
+</html>
